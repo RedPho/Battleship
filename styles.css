@@ -1,0 +1,14 @@
+.square {
+  border: solid black 1px;
+}
+
+.gameboard {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  grid-template-rows: repeat(10, 30px);
+}
+
+body {
+  display: flex;
+  gap: 20px;
+}

@@ -150,14 +150,22 @@ function Gameboard() {
   }
 }
 
+let playerBoard = document.querySelector(".player-gameboard");
+let computerBoard = document.querySelector(".computer-gameboard");
+
 function createGameboards() {
-  for (let i = 0; i < 100; i++) {
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("square");
-    let gameboards = document.querySelectorAll("gameboard");
-    gameboards.forEach((gameboard) => {
-      gameboard.appendChild(newDiv);
-    })
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      let newComputerDiv = document.createElement("div");
+      newComputerDiv.classList.add("square");
+      newComputerDiv.setAttribute("id", `c${j}${i}`)
+      let newPlayerDiv = document.createElement("div");
+      newPlayerDiv.classList.add("square");
+      newPlayerDiv.setAttribute("id", `p${j}${i}`)
+
+      computerBoard.appendChild(newComputerDiv);
+      playerBoard.appendChild(newPlayerDiv);
+    }
   }
 }
 
