@@ -131,6 +131,16 @@ function Gameboard() {
     return true;
   }
 
+  function placeShipsInUI() {
+    let ships = [carrier, battleship, destroyer, submarine, patrolBoat];
+    for (let i = 0; i < ships.length; i++) {
+      for (let j = 0; j < ships[i].coords.length; j++) {
+        let placedSquare = document.getElementById(`p${ships[i].coords[j][0]}${ships[i].coords[j][1]}`)
+        placedSquare.classList.add("placed");
+      }
+    }
+  }
+
   return {
     carrier,
     battleship,
@@ -146,14 +156,16 @@ function Gameboard() {
     allPlacedCoords,
     receiveAttack,
     hitted,
-    allSunk
+    allSunk,
+    placeShipsInUI
   }
 }
 
-let playerBoard = document.querySelector(".player-gameboard");
-let computerBoard = document.querySelector(".computer-gameboard");
+
 
 function createGameboards() {
+  let playerBoard = document.querySelector(".player-gameboard");
+  let computerBoard = document.querySelector(".computer-gameboard");
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
       let newComputerDiv = document.createElement("div");
@@ -162,7 +174,6 @@ function createGameboards() {
       let newPlayerDiv = document.createElement("div");
       newPlayerDiv.classList.add("square");
       newPlayerDiv.setAttribute("id", `p${j}${i}`)
-
       computerBoard.appendChild(newComputerDiv);
       playerBoard.appendChild(newPlayerDiv);
     }
@@ -170,3 +181,7 @@ function createGameboards() {
 }
 
 createGameboards();
+let playerBoard = new Gameboard();
+playerBoard.placePatrolBoat([2, 4], "X");
+playerBoard.placeCarrier([5, 5], "X");
+playerBoard.placeShipsInUI();
