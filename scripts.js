@@ -311,27 +311,114 @@ function createGameboardsDOM() {
       newPlayerDiv.classList.add("square");
       newPlayerDiv.classList.add("p");
       newPlayerDiv.setAttribute("id", `p${j}${i}`);
+      let defaultBC = newPlayerDiv.style.backgroundColor;
+      let next1;
+      let next2;
+      let next3;
+      let next4;
+      
+      newPlayerDiv.addEventListener("mouseover", () => {
+        if (axis == "X") {
+          next1 = document.getElementById(`p${j+1}${i}`);
+          next2 = document.getElementById(`p${j+2}${i}`);
+          next3 = document.getElementById(`p${j+3}${i}`);
+          next4 = document.getElementById(`p${j+4}${i}`);
+        }
+        else {
+          next1 = document.getElementById(`p${j}${i+1}`);
+          next2 = document.getElementById(`p${j}${i+2}`);
+          next3 = document.getElementById(`p${j}${i+3}`);
+          next4 = document.getElementById(`p${j}${i+4}`);
+        }
+        if (next1) {
+          next1defaultBC = next1.style.backgroundColor;
+        }
+        if (next2) {
+          next2defaultBC = next2.style.backgroundColor;
+        }
+        if (next3) {
+          next3defaultBC = next3.style.backgroundColor;
+        }
+        if (next4) {
+          next4defaultBC = next4.style.backgroundColor;
+        }
+        
+
+        if (playerBoard.carrier.coords.length == 0) {
+          if (axis == "X" && j > 5 || axis == "Y" && i > 5) {
+            return;
+          }
+          newPlayerDiv.style.backgroundColor = "green";
+          next1.style.backgroundColor = "green";
+          next2.style.backgroundColor = "green";
+          next3.style.backgroundColor = "green";
+          next4.style.backgroundColor = "green";
+        }
+        else if (playerBoard.battleship.coords.length == 0) {
+          if (axis == "X" && j > 6 || axis == "Y" && i > 6) {
+            return;
+          }
+          newPlayerDiv.style.backgroundColor = "green";
+          next1.style.backgroundColor = "green";
+          next2.style.backgroundColor = "green";
+          next3.style.backgroundColor = "green";
+        }
+        else if (playerBoard.destroyer.coords.length == 0) {
+          if (axis == "X" && j > 7 || axis == "Y" && i > 7) {
+            return;
+          }
+          newPlayerDiv.style.backgroundColor = "green"
+          next1.style.backgroundColor = "green";
+          next2.style.backgroundColor = "green";
+        }
+        else if (playerBoard.submarine.coords.length == 0) {
+          if (axis == "X" && j > 7 || axis == "Y" && i > 7) {
+            return;
+          }
+          newPlayerDiv.style.backgroundColor = "green"
+          next1.style.backgroundColor = "green";
+          next2.style.backgroundColor = "green";
+        }
+        else if (playerBoard.patrolBoat.coords.length == 0) {
+          if (axis == "X" && j > 8 || axis == "Y" && i > 8) {
+            return;
+          }
+          newPlayerDiv.style.backgroundColor = "green"
+          next1.style.backgroundColor = "green";
+        }
+      })
+      newPlayerDiv.addEventListener("mouseout", () => {
+        newPlayerDiv.style.backgroundColor = defaultBC;
+        if (next2) {
+          next1.style.backgroundColor = next1defaultBC;
+        }
+        if (next2) {
+          next2.style.backgroundColor = next2defaultBC;
+        }
+        if (next3) {
+          next3.style.backgroundColor = next3defaultBC;
+        }
+        if (next4) {
+          next4.style.backgroundColor = next4defaultBC;
+        }
+      })
       newPlayerDiv.addEventListener("click", () => {
         if (phase == "preparation") {
           if (playerBoard.carrier.coords.length == 0) {
             playerBoard.placeCarrier([j, i], axis);
             playerBoard.placeShipsInUI();
-            alert("place your battleship");
           }
           else if (playerBoard.battleship.coords.length == 0) {
             playerBoard.placeBattleship([j, i], axis);
             playerBoard.placeShipsInUI();
-            alert("place your destroyer");
           }
           else if (playerBoard.destroyer.coords.length == 0) {
             playerBoard.placeDestroyer([j, i], axis);
             playerBoard.placeShipsInUI();
-            alert("place your submarine");
           }
           else if (playerBoard.submarine.coords.length == 0) {
             playerBoard.placeSubmarine([j, i], axis);
             playerBoard.placeShipsInUI();
-            alert("place your patrol boat");
           }
           else if (playerBoard.patrolBoat.coords.length == 0) {
             playerBoard.placePatrolBoat([j, i], axis);
