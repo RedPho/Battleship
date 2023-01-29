@@ -389,7 +389,7 @@ function createGameboardsDOM() {
       })
       newPlayerDiv.addEventListener("mouseout", () => {
         newPlayerDiv.style.backgroundColor = defaultBC;
-        if (next2) {
+        if (next1) {
           next1.style.backgroundColor = next1defaultBC;
         }
         if (next2) {
