@@ -348,43 +348,43 @@ function createGameboardsDOM() {
           if (axis == "X" && j > 5 || axis == "Y" && i > 5) {
             return;
           }
-          newPlayerDiv.style.backgroundColor = "green";
-          next1.style.backgroundColor = "green";
-          next2.style.backgroundColor = "green";
-          next3.style.backgroundColor = "green";
-          next4.style.backgroundColor = "green";
+          newPlayerDiv.style.backgroundColor = "#C9EEFF";
+          next1.style.backgroundColor = "#C9EEFF";
+          next2.style.backgroundColor = "#C9EEFF";
+          next3.style.backgroundColor = "#C9EEFF";
+          next4.style.backgroundColor = "#C9EEFF";
         }
         else if (playerBoard.battleship.coords.length == 0) {
           if (axis == "X" && j > 6 || axis == "Y" && i > 6) {
             return;
           }
-          newPlayerDiv.style.backgroundColor = "green";
-          next1.style.backgroundColor = "green";
-          next2.style.backgroundColor = "green";
-          next3.style.backgroundColor = "green";
+          newPlayerDiv.style.backgroundColor = "#C9EEFF";
+          next1.style.backgroundColor = "#C9EEFF";
+          next2.style.backgroundColor = "#C9EEFF";
+          next3.style.backgroundColor = "#C9EEFF";
         }
         else if (playerBoard.destroyer.coords.length == 0) {
           if (axis == "X" && j > 7 || axis == "Y" && i > 7) {
             return;
           }
-          newPlayerDiv.style.backgroundColor = "green"
-          next1.style.backgroundColor = "green";
-          next2.style.backgroundColor = "green";
+          newPlayerDiv.style.backgroundColor = "#C9EEFF"
+          next1.style.backgroundColor = "#C9EEFF";
+          next2.style.backgroundColor = "#C9EEFF";
         }
         else if (playerBoard.submarine.coords.length == 0) {
           if (axis == "X" && j > 7 || axis == "Y" && i > 7) {
             return;
           }
-          newPlayerDiv.style.backgroundColor = "green"
-          next1.style.backgroundColor = "green";
-          next2.style.backgroundColor = "green";
+          newPlayerDiv.style.backgroundColor = "#C9EEFF"
+          next1.style.backgroundColor = "#C9EEFF";
+          next2.style.backgroundColor = "#C9EEFF";
         }
         else if (playerBoard.patrolBoat.coords.length == 0) {
           if (axis == "X" && j > 8 || axis == "Y" && i > 8) {
             return;
           }
-          newPlayerDiv.style.backgroundColor = "green"
-          next1.style.backgroundColor = "green";
+          newPlayerDiv.style.backgroundColor = "#C9EEFF"
+          next1.style.backgroundColor = "#C9EEFF";
         }
       })
       newPlayerDiv.addEventListener("mouseout", () => {
@@ -440,8 +440,7 @@ function createGameboardsDOM() {
           }
           if(computerBoard.allSunk()) {
             alert("You Win!");
-            location.reload();
-            
+            phase = "end";           
           }
           let randomIndex = Math.floor(Math.random()*computerChoices.length);
           let computerChoice = computerChoices[randomIndex];
@@ -453,7 +452,7 @@ function createGameboardsDOM() {
           }
           if (playerBoard.allSunk()) {
             alert("Computer Wins");
-            location.reload();
+            phase = "end";
           }
         }
       })
@@ -494,5 +493,4 @@ function placeShipsRandomForComputer() {
 }
 
 createGameboardsDOM();
-
 placeShipsRandomForComputer()

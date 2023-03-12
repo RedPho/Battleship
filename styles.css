@@ -1,5 +1,6 @@
 .square {
-  border: solid black 1px;
+  border: solid #62CDFF 1px;
+  transition: background-color 0.5s ease;
 }
 
 .c {
@@ -11,6 +12,7 @@
 }
 
 .gameboard {
+  background-color: rgba(45, 38, 75, 0.551);
   display: grid;
   grid-template-columns: repeat(10, 30px);
   grid-template-rows: repeat(10, 30px);
@@ -18,13 +20,19 @@
 
 body {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
+  background-color: rgb(83, 201, 236);
+  background-image: url("images/seaBG.jpg");
+  background-repeat: repeat;
+  background-size: 400px;
 }
 
 .placed {
-  background-color: aqua;
+  background-color: rgba(22, 178, 165, 0.837);
 }
 
 .hit {
-  background-color: red;
+  background-color: rgb(160, 104, 255);
 }
