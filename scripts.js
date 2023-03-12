@@ -440,7 +440,7 @@ function createGameboardsDOM() {
           }
           if(computerBoard.allSunk()) {
             alert("You Win!");
-            phase = "end";           
+            phase = "end";
           }
           let randomIndex = Math.floor(Math.random()*computerChoices.length);
           let computerChoice = computerChoices[randomIndex];

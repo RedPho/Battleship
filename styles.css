@@ -8,25 +8,33 @@
 }
 
 .clicked {
-  background-color: blue;
+  background-color: #4f4c75;
 }
 
 .gameboard {
-  background-color: rgba(45, 38, 75, 0.551);
+  background: radial-gradient(circle, rgb(0, 0, 0) 0%, rgba(4, 4, 189, 0.903) 100% );
   display: grid;
-  grid-template-columns: repeat(10, 30px);
-  grid-template-rows: repeat(10, 30px);
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
+  border: #214455 5px solid;
 }
 
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   background-color: rgb(83, 201, 236);
   background-image: url("images/seaBG.jpg");
   background-repeat: repeat;
   background-size: 400px;
+}
+
+.gameboards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .placed {
@@ -34,5 +42,34 @@ body {
 }
 
 .hit {
-  background-color: rgb(160, 104, 255);
+  background-color: #EB4747;
+}
+
+h1 {
+  background-color: rgba(0, 0, 0, 0.529);
+  color: white;
+  padding: 5px;
+}
+h2 {
+  background-color: rgba(0, 0, 0, 0.529);
+  color: white;
+  padding: 5px;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .gameboards {
+    flex-direction: column;
+  }
+
+  .gameboard {
+    grid-template-columns: repeat(10, 25px);
+    grid-template-rows: repeat(10, 25px);
+  }
 }
