@@ -34,6 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -63,11 +64,28 @@ h2 {
   justify-content: center;
 }
 
-@media screen and (max-width: 600px) {
-  .gameboards {
-    flex-direction: column;
-  }
+.axis-container {
+  background-color: rgba(0, 0, 0, 0.529);
+  padding: 5px;
+}
 
+label {
+  color: white;
+  padding: 5px;
+}
+
+button {
+  background-color: #214455;
+  color:white;
+}
+
+button:hover {
+  color: black;
+  background-color: #62CDFF;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
   .gameboard {
     grid-template-columns: repeat(10, 25px);
     grid-template-rows: repeat(10, 25px);

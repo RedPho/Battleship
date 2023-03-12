@@ -1,6 +1,7 @@
 var phase = "preparation";
 let axisDOM = document.getElementById("axis");
 let axis = axisDOM.innerText;
+let axisContainer = document.querySelector(".axis-container")
 axisDOM.addEventListener("click", () => {
   if (axis == "X") {
     axisDOM.innerText = "Y";
@@ -424,6 +425,7 @@ function createGameboardsDOM() {
             playerBoard.placePatrolBoat([j, i], axis);
             playerBoard.placeShipsInUI();
             phase = "play";
+            axisContainer.hidden = true;
           }
         }
       })
