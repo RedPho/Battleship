@@ -64,9 +64,23 @@ h2 {
   justify-content: center;
 }
 
-.axis-container {
+.axis-container, .play-title {
+  font-size: xx-large;
   background-color: rgba(0, 0, 0, 0.529);
-  padding: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+h3 {
+  margin: 5px;
+  padding: 10px;
+}
+
+[hidden] {
+  display: none;
 }
 
 label {

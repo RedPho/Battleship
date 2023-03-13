@@ -1,7 +1,8 @@
 var phase = "preparation";
 let axisDOM = document.getElementById("axis");
 let axis = axisDOM.innerText;
-let axisContainer = document.querySelector(".axis-container")
+let axisContainer = document.querySelector(".axis-container");
+let playTitle = document.querySelector(".play-title");
 axisDOM.addEventListener("click", () => {
   if (axis == "X") {
     axisDOM.innerText = "Y";
@@ -426,6 +427,7 @@ function createGameboardsDOM() {
             playerBoard.placeShipsInUI();
             phase = "play";
             axisContainer.hidden = true;
+            playTitle.hidden = false;
           }
         }
       })
@@ -441,7 +443,7 @@ function createGameboardsDOM() {
             newComputerDiv.classList.add("hit");
           }
           if(computerBoard.allSunk()) {
-            alert("You Win!");
+            alert("You Win! Reflesh the page to play again.");
             phase = "end";
           }
           let randomIndex = Math.floor(Math.random()*computerChoices.length);
@@ -453,7 +455,7 @@ function createGameboardsDOM() {
             computerChoiceSquare.classList.add("hit");
           }
           if (playerBoard.allSunk()) {
-            alert("Computer Wins");
+            alert("Computer Wins :( Reflesh the page to try again.");
             phase = "end";
           }
         }

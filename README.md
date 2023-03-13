@@ -1,2 +1,3 @@
 # Battleship
-Battleship game playable in browser
+Battleship game made with html css and vanilla javascript.
+Live: https://redpho.github.io/Battleship/
